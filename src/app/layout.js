@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Link from "next/link";
 
 export const metadata = {
   title: "Next Hero",
@@ -12,11 +13,11 @@ export default function RootLayout({ children }) {
       <body>
         <header>
           <nav>
-            <h6>Logo</h6>
+            <h6><Link href={'/'}>Logo</Link></h6>
             <ul>
-              <li>About</li>
-              <li>Service</li>
-              <li>Contact</li>
+              <li><Link href={'/about'}>About</Link></li>
+              <li><Link href={'/services'}>Services</Link></li>
+              <li><Link href={'/contact'}>Contact</Link></li>
             </ul>
           </nav>
         </header>
