@@ -1,10 +1,12 @@
 "use client"
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
   const pathName = usePathname();
+  const router = useRouter();
 
+  // navbar options
   const navLinks = [
     {
       title: 'About',
@@ -21,7 +23,12 @@ const Navbar = () => {
   ]
 
   console.log(pathName);
-  
+
+  // redirect to login page
+  const handleLoginBtn = () => {
+    router.push('/login');
+  }
+
   return (
     <nav className="flex p-4 justify-between items-center bg-purple-900 text-white">
       <h6 className="text-green-400 text-4xl font-bold"><Link href={'/'}>Logo</Link></h6>
@@ -40,6 +47,7 @@ const Navbar = () => {
           )
         }
       </ul>
+      <button onClick={handleLoginBtn} className="bg-white text-green-600 font-bold px-4 py-2 rounded-lg">Login</button>
     </nav>
   );
 };
